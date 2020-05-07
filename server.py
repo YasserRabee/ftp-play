@@ -8,6 +8,7 @@ from pyftpdlib.servers import FTPServer
 class VerboseServer(FTPServer):
     def handle_accepted(self, sock, addr):
         self.log_info("connection from: %s:%s" % addr)
+        super().handle_accepted(sock, addr)
 
 
 def main():
