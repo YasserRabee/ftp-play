@@ -1,5 +1,7 @@
 FROM python:3.6
 
+RUN pip install pyftpdlib
+
 WORKDIR /app
 
 ADD client.py /app
