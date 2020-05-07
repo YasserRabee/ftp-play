@@ -5,10 +5,13 @@ from os import environ
 
 def main():
     with FTP() as ftp:
-        addr = environ['SOURCE_ADDRESS']
-        port = int(environ['SOURCE_ADDRESS_PORT'])
+        host_addr = environ['HOST_ADDRESS']
+        host_port = int(environ['HOST_PORT'])
 
-        ftp.connect('localhost', 2121, source_address=(addr, port))
+        source_addr = environ['SOURCE_ADDRESS']
+        source_port = int(environ['SOURCE_ADDRESS_PORT'])
+
+        ftp.connect(host_addr, host_port, source_address=(source_addr, source_port))
         print(ftp.getwelcome())
 
 
